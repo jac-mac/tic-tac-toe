@@ -1,4 +1,4 @@
-let CELLWIDTH = 300;
+let CELLWIDTH = 200;
 let ROWS;
 let COLS;
 let xTurn = true;
@@ -18,7 +18,7 @@ make2DArray = function(rows, cols)
 }
 
 function setup() {
-  createCanvas(900, 900);
+  createCanvas(600, 600);
   background(255);
 
   ROWS = floor(width / CELLWIDTH);

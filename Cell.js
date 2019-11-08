@@ -14,7 +14,7 @@ function Cell(xPosition, yPosition, widthOfCell) {
       if(this.value == 1)
       {
         fill(color(0, 0, 255));
-        rect(this.xPos+this.width/4, this.yPos+this.width/4, 150, 150);
+        rect((this.xPos+this.width/4)-10, (this.yPos+this.width/4)-10, 120, 120);
         //textSize(25);
         //text('X', this.xPos+this.width/2, this.yPos+this.with/2);
       }
@@ -22,7 +22,7 @@ function Cell(xPosition, yPosition, widthOfCell) {
       else if(this.value == 0)
       {
         fill(color(255, 0, 0));
-        ellipse(this.xPos+this.width/2, this.yPos+this.width/2, 150);
+        ellipse((this.xPos+this.width/2), (this.yPos+this.width/2), 120);
         //textSize(25);
         //text('O', (this.xPos+this.width/2), (this.yPos+this.with/2));
       }
