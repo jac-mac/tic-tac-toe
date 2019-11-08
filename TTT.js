@@ -6,6 +6,7 @@ let yTurn = false;
 var grid;
 let winner = false;
 
+//construction of 2D array for TTT board
 make2DArray = function(rows, cols)
 {
   arr = new Array(rows);
@@ -17,6 +18,7 @@ make2DArray = function(rows, cols)
   return arr;
 }
 
+//starting function for P5. Called before draw.
 function setup() {
   createCanvas(600, 600);
   background(255);
@@ -34,7 +36,7 @@ grid = make2DArray(ROWS, COLS);
   }
 }
 
-
+//checks columns for win condition
 checkCol = function()
 {
     if(grid[0][0].getValue() == 1 && grid[0][1].getValue() == 1 && grid[0][2].getValue() == 1)
@@ -58,6 +60,8 @@ checkCol = function()
     return false;
 }
 
+
+//checks rows for win condition
 checkRow = function()
 {
   if(grid[0][0].getValue() == 1 && grid[1][0].getValue() == 1 && grid[2][0].getValue() == 1)
@@ -82,6 +86,7 @@ checkRow = function()
 
 }
 
+//checks diagonals for win condition
 checkDiagonal = function()
 {
   if(grid[0][0].getValue() == 1 && grid[1][1].getValue() == 1 && grid[2][2].getValue() == 1)
@@ -97,6 +102,7 @@ checkDiagonal = function()
     return true;
 }
 
+//calls all checks to see if a win is made
 checkWin = function()
 {
   if(checkRow() || checkCol() || checkDiagonal())
@@ -105,6 +111,7 @@ checkWin = function()
     return false;
 }
 
+//handles mouse pressed events. Used for placing tokens on board and checks for wins after each press.
 function mousePressed()
 {
   for(var i = 0; i < ROWS; i++)
@@ -119,7 +126,6 @@ function mousePressed()
           xTurn = false;
           grid[i][j].setValue(1);
           grid[i][j].setActive(false);
-          console.log("X Played here at: (" + i + ", " + j + ")")
         }
 
         else if(yTurn) {
@@ -127,7 +133,6 @@ function mousePressed()
           yTurn = false;
           grid[i][j].setValue(0);
           grid[i][j].setActive(false);
-          console.log("Y Played here at: (" + i + ", " + j + ")")
         }
       }
     }
@@ -157,6 +162,7 @@ function mousePressed()
   }
 }
 
+//resets the P5 canvas on click
 reset = function()
 {
   for(let i = 0; i < ROWS; i++)
@@ -174,6 +180,7 @@ reset = function()
 
 }
 
+//repeating P5 function. Continuously draws the items in show()
 function draw () {
   for(let i = 0; i < ROWS; i++)
   {
